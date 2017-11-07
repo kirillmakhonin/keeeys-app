@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Keeeys</string>
+  <string name="layout__my_key_show__camera_hint">Наведите камеру</string>
+  
+  <string name="menu__private_keys">Мои ключи</string>
+  <string name="menu__check_keys">Фейс-контроль</string>
+  <string name="menu__domain_organize">Управление доменом</string>
+  <string name="menu__authorize__need_login">Нужно авторизоваться</string>
+  <string name="menu__authorize__logout">Выйти</string>
+</resources>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary"
+    android:paddingLeft="40px"
+    android:paddingRight="40px">
+    <ImageView
+        android:src="@drawable/big_logo"
+        android:layout_width="256px"
+        android:layout_height="256px"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:layout_gravity="center"
+        android:id="@+id/logoView"
+        android:layout_marginBottom="40px" />
+    <Button
+        android:id="@+id/menu__private_keys"
+        android:text="@string/menu__private_keys"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40px" />
+    <Button
+        android:id="@+id/menu__check_keys"
+        android:text="@string/menu__check_keys"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40px" />
+    <Button
+        android:id="@+id/menu__domain_organize"
+        android:text="@string/menu__domain_organize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40px" />
+    <Button
+        android:id="@+id/menu__authorize"
+        android:text="@string/menu__authorize__need_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <item name="primary" type="color">#5A8622</item>
+  <item name="active_items__background" type="color">#ffffff</item>
+  <item name="active_items__text_color" type="color">#ffffff</item>
+</resources>
