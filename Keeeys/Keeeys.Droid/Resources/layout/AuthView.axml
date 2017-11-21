@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary"
+    android:paddingLeft="40px"
+    android:paddingRight="40px">
+    <ImageView
+        android:src="@drawable/big_logo"
+        android:layout_width="256px"
+        android:layout_height="256px"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:layout_gravity="center"
+        android:id="@+id/logoView"
+        android:layout_marginBottom="40px" />
+    <EditText
+        android:id="@+id/layout__auth__form__server"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="192.168.100.7"
+        android:hint="@string/layout__auth__form__server" />
+    <EditText
+        android:id="@+id/layout__auth__form__login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="user1"
+        android:hint="@string/layout__auth__form__login" />
+    <EditText
+        android:id="@+id/layout__auth__form__password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:text="pass"
+        android:hint="@string/layout__auth__form__password" />
+    <Button
+        android:id="@+id/layout__auth__form__try_auth"
+        android:text="@string/layout__auth__form__try_auth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

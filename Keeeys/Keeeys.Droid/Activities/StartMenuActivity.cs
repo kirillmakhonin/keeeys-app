@@ -31,6 +31,7 @@ namespace Keeeys.Droid.Activities
         {
             FindViewById<Button>(Resource.Id.menu__private_keys).Click += delegate
             {
+                StartActivity(typeof(MyKeysListActivity));
             };
 
             FindViewById<Button>(Resource.Id.menu__check_keys).Click += delegate
@@ -39,10 +40,12 @@ namespace Keeeys.Droid.Activities
 
             FindViewById<Button>(Resource.Id.menu__domain_organize).Click += delegate
             {
+                StartActivity(typeof(ChooseDomainActivity));
             };
 
             FindViewById<Button>(Resource.Id.menu__authorize).Click += delegate
             {
+                StartActivity(typeof(AuthActivity));
             };
         }
 
@@ -61,7 +64,7 @@ namespace Keeeys.Droid.Activities
 
         private bool IsLoggedIn
         {
-            get { return false; }
+            get { return true; }
         }
 
         private string Login
@@ -76,7 +79,7 @@ namespace Keeeys.Droid.Activities
                 if (!IsLoggedIn)
                     return Resources.GetString(Resource.String.menu__authorize__need_login);
 
-                return "???";
+                return Resources.GetString(Resource.String.menu__authorize__need_login);
             }
         }
                 

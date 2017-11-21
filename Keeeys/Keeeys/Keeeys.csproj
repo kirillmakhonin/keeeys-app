@@ -32,6 +32,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Helpers\Crypto.cs" />
+    <Compile Include="Models\ICustomListItem.cs" />
+    <Compile Include="Models\PlainListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
