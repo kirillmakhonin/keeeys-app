@@ -4,6 +4,7 @@ using Android.App;
 using Android.Content;
 using Android.Widget;
 using Android.OS;
+using Keeeys.Droid.Helpers;
 
 namespace Keeeys.Droid.Activities
 {
@@ -36,6 +37,10 @@ namespace Keeeys.Droid.Activities
 
             FindViewById<Button>(Resource.Id.menu__check_keys).Click += delegate
             {
+                var activity = new Intent(this, typeof(ScanActivity));
+                activity.PutExtra(ActivityPayloads.ScanTitle, "Title");
+                activity.PutExtra(ActivityPayloads.ScanHelper, "Helper");
+                StartActivityForResult(activity, ActivityRequests.QRSCAN);
             };
 
             FindViewById<Button>(Resource.Id.menu__domain_organize).Click += delegate
@@ -52,7 +57,15 @@ namespace Keeeys.Droid.Activities
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
-                        
+
+            if (resultCode == Result.Ok)
+            {
+                string scannedCode = data.GetStringExtra(ActivityPayloads.ScannedCode);
+                if (requestCode == ActivityRequests.QRSCAN)
+                {
+                    Toast.MakeText(this, "Code: " + scannedCode, ToastLength.Long).Show();
+                }
+            }
         }
 
         private void UpdateViewElements()
