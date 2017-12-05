@@ -10,8 +10,8 @@ using Android.Widget;
 
 using Keeeys.Droid.Adapters;
 using Keeeys.Droid.Helpers;
-using Keeeys.Helpers;
-using Keeeys.Models;
+using Keeeys.Common.Helpers;
+using Keeeys.Common.Models;
 
 
 namespace Keeeys.Droid.Activities
@@ -21,12 +21,10 @@ namespace Keeeys.Droid.Activities
     {
         private CustomListAdapter listAdapter;
         private ListView listView;
-        private List<ICustomListItem> listItems;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            listItems = new List<ICustomListItem>();
             Window.RequestFeature(WindowFeatures.ActionBar);
 
             SetContentView(Resource.Layout.MyKeysList);
@@ -34,9 +32,10 @@ namespace Keeeys.Droid.Activities
             ActionBar.Show();
             ActionBar.Title = Resources.GetString(Resource.String.layout__private_keys__title);
 
-            listItems.Add(new PlainListItem(0, "One"));
-            listItems.Add(new PlainListItem(1, "Two"));
-            listAdapter = new CustomListAdapter(this, Resource.Layout.ListRowView, Resource.Id.ListItemName, listItems);
+            listAdapter = new CustomListAdapter(this, Resource.Layout.ListRowView, Resource.Id.ListItemName, DataProvider.Get().GetPrivateKeys().ToList<ICustomListItem>());
+
+            if (DataProvider.Get().GetPrivateKeys().Count == 0)
+                AddPK();
 
             listView = FindViewById<ListView>(Resource.Id.listView);
             listView.Adapter = listAdapter;
@@ -47,7 +46,8 @@ namespace Keeeys.Droid.Activities
 
         private void ListView_ItemLongClick(object sender, AdapterView.ItemLongClickEventArgs e)
         {
-            
+            DataProvider.Get().RemovePrivateKey(GetItem(e.Position).Id);
+            UpdateList();
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -65,23 +65,36 @@ namespace Keeeys.Droid.Activities
             
         }
 
+        private void AddPK()
+        {
+            int id = Time.GetTimestamp() % 1000 * 10 + new Random().Next() % 10;
+            DataProvider.Get().AddPrivateKey(new PrivateKey(id, "DN" + id, "EN" + id, "PK"));
+            UpdateList();
+        }
+
         private void ListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-            listItems.Add(new PlainListItem(0, "Rand"));
-            listAdapter.UpdateAll(listItems);
+            AddPK();
         }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
 
-            
+
         }
 
         protected void UpdateList()
         {
-            
+            List<PrivateKey> currentPrivateKeys = DataProvider.Get().GetPrivateKeys();
+            listAdapter.UpdateAll(currentPrivateKeys.ToList<ICustomListItem>());
         }
-        
+
+        protected PrivateKey GetItem(int id)
+        {
+            var list = DataProvider.Get().GetPrivateKeys();
+            return list[id];
+        }
+
     }
 }

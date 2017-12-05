@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Keeeys.Helpers;
+using Keeeys.Common.Helpers;
 using System.Linq;
 using PCLCrypto;
 using System.Security.Cryptography.X509Certificates;

@@ -79,9 +79,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Keeeys\Keeeys\Keeeys.csproj">
+    <ProjectReference Include="..\Keeeys\Keeeys\Keeeys.Common.csproj">
       <Project>{9b6fe55d-c3e5-4aa6-a6f9-c43bd960ff1c}</Project>
-      <Name>Keeeys</Name>
+      <Name>Keeeys.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

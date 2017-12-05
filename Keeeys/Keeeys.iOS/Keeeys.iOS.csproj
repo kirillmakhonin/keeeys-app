@@ -4,7 +4,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>28263855-d1bd-4667-b405-da611d5cca1d</ProjectGuid>
+    <ProjectGuid>{28263855-D1BD-4667-B405-DA611D5CCA1D}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Keeeys.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
@@ -67,8 +67,9 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Keeeys\Keeeys.csproj">
-      <Name>Keeeys</Name>
+    <ProjectReference Include="..\Keeeys\Keeeys.Common.csproj">
+      <Name>Keeeys.Common</Name>
+      <Project>{9B6FE55D-C3E5-4AA6-A6F9-C43BD960FF1C}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

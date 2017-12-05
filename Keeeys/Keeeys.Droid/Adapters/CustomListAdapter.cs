@@ -3,7 +3,7 @@
 using Android.App;
 using Android.Views;
 using Android.Widget;
-using Keeeys.Models;
+using Keeeys.Common.Models;
 
 namespace Keeeys.Droid.Adapters
 {

@@ -5,6 +5,7 @@ using Android.Content;
 using Android.Widget;
 using Android.OS;
 using Keeeys.Droid.Helpers;
+using Keeeys.Common.Models;
 
 namespace Keeeys.Droid.Activities
 {

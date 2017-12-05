@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PCLCrypto;
 
-namespace Keeeys.Helpers
+namespace Keeeys.Common.Helpers
 {
     public static class Crypto
     {

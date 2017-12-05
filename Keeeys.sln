@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Keeeys.Droid", "Keeeys\Keee
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Keeeys.iOS", "Keeeys\Keeeys.iOS\Keeeys.iOS.csproj", "{28263855-D1BD-4667-B405-DA611D5CCA1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Keeeys", "Keeeys\Keeeys\Keeeys.csproj", "{9B6FE55D-C3E5-4AA6-A6F9-C43BD960FF1C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Keeeys.Common", "Keeeys\Keeeys\Keeeys.Common.csproj", "{9B6FE55D-C3E5-4AA6-A6F9-C43BD960FF1C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Keeeys.CommonTests", "Keeeys.CommonTests\Keeeys.CommonTests.csproj", "{19D6C277-3089-4BB7-A0CC-410EBC76EF8D}"
 EndProject

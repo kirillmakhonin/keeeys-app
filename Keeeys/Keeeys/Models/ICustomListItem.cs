@@ -1,4 +1,4 @@
-﻿namespace Keeeys.Models
+﻿namespace Keeeys.Common.Models
 {
     public interface ICustomListItem
     {

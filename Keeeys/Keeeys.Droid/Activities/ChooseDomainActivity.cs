@@ -11,7 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Keeeys.Droid.Helpers;
 using Keeeys.Droid.Adapters;
-using Keeeys.Models;
+using Keeeys.Common.Models;
 
 namespace Keeeys.Droid.Activities
 {
