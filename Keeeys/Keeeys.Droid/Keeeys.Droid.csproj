@@ -35,6 +35,9 @@
     <AndroidEnableMultiDex>False</AndroidEnableMultiDex>
     <AotAssemblies>false</AotAssemblies>
     <EnableLLVM>false</EnableLLVM>
+    <AndroidSupportedAbis />
+    <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
+    <AndroidTlsProvider>btls</AndroidTlsProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -126,12 +129,18 @@
     <Compile Include="Activities\AuthActivity.cs" />
     <Compile Include="Activities\BaseActivity.cs" />
     <Compile Include="Activities\ChooseDomainActivity.cs" />
+    <Compile Include="Activities\DomainControlActivity.cs" />
+    <Compile Include="Activities\DomainUsersActivity.cs" />
+    <Compile Include="Activities\GuestCreatingActivity.cs" />
+    <Compile Include="Activities\MyKeyShowActivity.cs" />
     <Compile Include="Activities\MyKeysListActivity.cs" />
     <Compile Include="Activities\ScanActivity.cs" />
     <Compile Include="Activities\StartMenuActivity.cs" />
     <Compile Include="Adapters\CustomListAdapter.cs" />
     <Compile Include="Helpers\ActivityPayloads.cs" />
     <Compile Include="Helpers\ActivityRequests.cs" />
+    <Compile Include="Helpers\QrBuilder.cs" />
+    <Compile Include="PlatformSpecific\Crypto.cs" />
     <Compile Include="PlatformSpecific\FileHelper.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -154,6 +163,18 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\ListRowView.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\DomainUsersList.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\GuestKeyShow.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\MyKeyShow.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\menu\AddItemMenu.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -224,9 +245,7 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\big_logo.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\menu\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Keeeys\Keeeys.Common.csproj">
       <Project>{9b6fe55d-c3e5-4aa6-a6f9-c43bd960ff1c}</Project>

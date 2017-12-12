@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/contentLayout"
+    android:minWidth="25px"
+    android:minHeight="25px">
+  <TextView
+      android:id="@+id/eventName"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center"
+      android:textColor="#000"
+      android:textSize="40dip"
+      android:textStyle="normal"
+      android:text="DEMO NAME"
+      android:layout_marginTop="3dip" />
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center"
+      android:textColor="#000"
+      android:textSize="20dip"
+      android:textStyle="normal"
+      android:text="@string/layout__guest_creating__after_request__camera_hint"
+      android:layout_marginTop="10dip" />
+  <ImageView
+      android:id="@+id/qrCodeImage"
+      android:scaleType="fitXY"
+      android:layout_gravity="center_horizontal"
+      android:layout_width="300px"
+      android:layout_height="300px"
+      android:layout_marginBottom="40px" />
+  <Button
+      android:id="@+id/layout__guest_creating__after_request__next"
+      android:text="@string/layout__guest_creating__after_request__next"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content" />
+</LinearLayout>

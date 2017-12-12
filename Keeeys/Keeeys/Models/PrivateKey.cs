@@ -1,5 +1,7 @@
-﻿using SQLite.Net.Attributes;
+﻿using Keeeys.Helpers;
+using SQLite.Net.Attributes;
 using System;
+using Keeeys.Common.Helpers;
 
 namespace Keeeys.Common.Models
 {
@@ -42,6 +44,29 @@ namespace Keeeys.Common.Models
         public string ToLabelString()
         {
             return String.Format("{0} / {1}", OrganizationName, DomainName);
+        }
+
+        public string DataForAuthorisation(ICrypto crypto, long? timestamp = null)
+        {
+            long timeForCalculating = timestamp.HasValue ? timestamp.Value : Time.GetTimestamp();
+            string calculatedString = crypto.CryptTimestampWithPrivateKey(timeForCalculating, PrivateKeyString);
+
+            QrEncoder.PublicAuthInfo data = new QrEncoder.PublicAuthInfo();
+            data.ParticipantId = PatricipentId;
+            data.PublicKey = calculatedString;
+
+            return data.ToString();
+        }
+
+        public static PrivateKey Build(QrEncoder.PrivateSharingKeyInfo data, int id)
+        {
+            PrivateKey key = new PrivateKey();
+            key.DomainName = data.DomainName;
+            key.OrganizationName = data.OrganizationName;
+            key.PatricipentId = data.ParticipantId;
+            key.PrivateKeyString = data.PrivateKey;
+            key.Id = id;
+            return key;
         }
     }
 }

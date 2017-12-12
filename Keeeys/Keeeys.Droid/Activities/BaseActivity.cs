@@ -17,6 +17,7 @@ namespace Keeeys.Droid.Activities
         {
             CheckAndConnectToDatabase();
             base.OnCreate(bundle);
+
             //RequestWindowFeature(WindowFeatures.IndeterminateProgress);
         }
 

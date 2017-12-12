@@ -12,32 +12,43 @@ using Android.Widget;
 using Keeeys.Droid.Helpers;
 using Keeeys.Droid.Adapters;
 using Keeeys.Common.Models;
+using Keeeys.Common.Network;
 
 namespace Keeeys.Droid.Activities
 {
     [Activity(Label = "ChooseDomainActivity")]
     public class ChooseDomainActivity : BaseActivity
     {
+        private Connector connection;
         private CustomListAdapter listAdapter;
         private ListView listView;
-        private List<ICustomListItem> listItems;
+        private List<OrganizationDomain> organizationDomainPairs;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            listItems = new List<ICustomListItem>();
+            string windowHeaderTitle = Intent.GetStringExtra(ActivityPayloads.WindowHeaderTitle);
+            if (windowHeaderTitle == null)
+                windowHeaderTitle = "";
+
+            int connectionId = Intent.GetIntExtra(ActivityPayloads.ServerConnectionId, -1);
+            if (connectionId < 0)
+                Finish();
+
+            connection = Connector.Get(connectionId);
+            if (connection == null)
+                Finish();
 
             Window.RequestFeature(WindowFeatures.ActionBar);
 
             SetContentView(Resource.Layout.MyKeysList);
 
             ActionBar.Show();
-            ActionBar.Title = "Action Bar";
+            ActionBar.Title = windowHeaderTitle;
 
-            listItems.Add(new PlainListItem(0, "One"));
-            listItems.Add(new PlainListItem(1, "Two"));
-            listAdapter = new CustomListAdapter(this, Resource.Layout.ListRowView, Resource.Id.ListItemName, listItems);
+            organizationDomainPairs = OrganizationDomain.BuildFromOrganizationList(Connector.Get().GetOrganizations());
+            listAdapter = new CustomListAdapter(this, Resource.Layout.ListRowView, Resource.Id.ListItemName, organizationDomainPairs.ToList<ICustomListItem>());
 
             listView = FindViewById<ListView>(Resource.Id.listView);
             listView.Adapter = listAdapter;
@@ -46,7 +57,16 @@ namespace Keeeys.Droid.Activities
 
         private void ListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-            
+            Intent resultIntent = new Intent();
+            resultIntent.PutExtra(ActivityPayloads.ChoosenDomain, (int)GetItem(e.Position).DomainInstance.Id.Value);
+            resultIntent.PutExtra(ActivityPayloads.ChoosenOrganization, (int)GetItem(e.Position).OrganizationInstance.Id.Value);
+            SetResult(Result.Ok, resultIntent);
+            Finish();
+        }
+
+        protected OrganizationDomain GetItem(int id)
+        {
+            return organizationDomainPairs[id];
         }
     }
 }

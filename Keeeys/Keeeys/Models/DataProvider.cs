@@ -51,7 +51,7 @@ namespace Keeeys.Common.Models
         private void PrepareDatabase()
         {
             Connection.CreateTable<PrivateKey>();
-            // Connection.CreateTable<ServerConnectionInfo>();
+            Connection.CreateTable<ServerConnectionInfo>();
         }
 
         public List<PrivateKey> GetPrivateKeys()
@@ -67,6 +67,11 @@ namespace Keeeys.Common.Models
         public void RemovePrivateKey(int id)
         {
             Connection.Delete<PrivateKey>(id);
+        }
+
+        public int GetPrivateKeyNewId()
+        {
+            return GetNewId<PrivateKey>();
         }
 
         private int GetNewId<T>() where T : class

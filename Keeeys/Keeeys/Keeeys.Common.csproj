@@ -33,6 +33,8 @@
     </DefineConstants>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Helpers\ICrypto.cs" />
+    <Compile Include="Helpers\QrEncoder.cs" />
     <Compile Include="Helpers\Time.cs" />
     <Compile Include="Models\DataProvider.cs" />
     <Compile Include="Exceptions\PrivateKeyAlreadyExistsException.cs" />
@@ -40,9 +42,13 @@
     <Compile Include="Helpers\Crypto.cs" />
     <Compile Include="Helpers\DatabaseManager.cs" />
     <Compile Include="Models\ICustomListItem.cs" />
+    <Compile Include="Models\OrganizationDomain.cs" />
     <Compile Include="Models\PlainListItem.cs" />
     <Compile Include="Models\PrivateKey.cs" />
     <Compile Include="Models\ServerConnectionInfo.cs" />
+    <Compile Include="Network\Client.cs" />
+    <Compile Include="Network\ClientExtension.cs" />
+    <Compile Include="Network\Connector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

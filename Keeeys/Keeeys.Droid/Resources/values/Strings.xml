@@ -1,18 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">Keeeys</string>
+  <string name="app_name">Keeeys</string>
   <string name="layout__my_key_show__camera_hint">Наведите камеру</string>
-  
-  <string name="layout__private_keys__title">Мои ключи</string>
-  
+
   <string name="menu__private_keys">Мои ключи</string>
   <string name="menu__check_keys">Фейс-контроль</string>
   <string name="menu__domain_organize">Управление доменом</string>
   <string name="menu__authorize__need_login">Нужно авторизоваться</string>
   <string name="menu__authorize__logout">Выйти</string>
-  
+
+  <string name="action_bar__add">Добавить</string>
+
+  <string name="layout__private_keys__title">Мои ключи</string>
+  <string name="layout__private_keys__scan_title">Добавление ключа</string>
+  <string name="layout__private_keys__scan_helper">Наведите камеру на штрих код</string>
+  <string name="layout__private_keys__scan_error">Ошибка сканирования</string>
+  <string name="layout__private_keys__scan_error__key_already_exists">Ошибка сканирования: ключ уже был добавлен</string>
+  <string name="layout__private_keys__removing_dialog__question">Удалить ключ?</string>
+  <string name="layout__private_keys__removing_dialog__text">После удаления ключа он перестанет быть доступным!</string>
+  <string name="layout__private_keys__removing_dialog__has_been_removed">Ключ был удален</string>
+
+  <string name="layout__auth__logout__logged_out">Вы деавторизовались</string>
+  <string name="layout__auth__login__logged_in">Вы авторизовались</string>
+  <string name="layout__auth__login_error__invalid_creditnals">Ошибка: логин и пароль не подходят</string>
+
   <string name="layout__auth__form__server">Сервер (IP/dns)</string>
   <string name="layout__auth__form__login">Логин</string>
   <string name="layout__auth__form__password">Пароль</string>
   <string name="layout__auth__form__try_auth">Авторизоваться</string>
+
+  <string name="layout__face_controll_list__choose_domain">Домен для фейс контроля</string>
+  <string name="layout__face_controll_list__scan_description">Направте камеру на штрих код</string>
+  <string name="layout__domain_controll_list__choose_domain">Домен для управления</string>
+  <string name="layout__domain_controll_list__add_guest">Добавить гостя</string>
+  <string name="layout__domain_controll__wrong_code">Некорректный код</string>
+  <string name="layout__domain_controll__good_code">АВТОРИЗОВАН</string>
+
+  <string name="layout__guest_creating__guest_name_dialog__title">Добавление гостя</string>
+  <string name="layout__guest_creating__guest_name_dialog__message">Пожалуйста, введите имя новго гостя</string>
+  <string name="layout__guest_creating__guest_name_dialog__hint">Имя пользователя</string>
+  <string name="layout__guest_creating__guest_name_dialog__next">Продолжить</string>
+  <string name="layout__guest_creating__guest_name_dialog__invalid_name">Имя должно состоять из 4-х символов</string>
+
+  <string name="layout__guest_creating__pre_request__title">Подтвердить</string>
+  <string name="layout__guest_creating__pre_request__user_will_be_created">Будет создан пользователь </string>
+  <string name="layout__guest_creating__pre_request__warning_about_key">Сейчас будет показан приватный ключ!</string>
+  <string name="layout__guest_creating__pre_request__next">Получить ключ</string>
+
+  <string name="layout__guest_creating__after_request__next">Ключ импортирован</string>
+  <string name="layout__guest_creating__after_request__camera_hint">Наведите камеру</string>
+
+  <string name="remove">Удалить</string>
+  <string name="cancel">Отмена</string>
+  <string name="error__wtf">Непредвиденная ошибка работы приложения</string>
+  <string name="error__field_not_filled">Поле не заполнено</string>
+
+  <string name="layout__private_key__qr_code_build_error">Ошибка построения QR кода</string>
+
+
+  <string name="protocol_error">Ошибка: ошибка протокола</string>
+  <string name="protocol_error__cannot_connect">Ошибка: невозможно подключиться</string>
 </resources>
