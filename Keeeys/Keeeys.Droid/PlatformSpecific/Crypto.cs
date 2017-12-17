@@ -4,6 +4,8 @@ using System.Linq;
 using Java.Security;
 using Java.Security.Spec;
 using Javax.Crypto;
+using Java.Nio;
+using Java.Util;
 using Android.Util;
 
 namespace Keeeys.Droid.PlatformSpecific
@@ -12,30 +14,28 @@ namespace Keeeys.Droid.PlatformSpecific
     {
         public Crypto() { }
 
-        public string EncryptRSA(string privateKeyString, byte[] data)
+        public static Keeeys.Helpers.ICrypto Instance
         {
-            try
-            {
-                byte[] privateKey = Base64.Decode(privateKeyString, Base64Flags.NoWrap);
-                KeyFactory kf = KeyFactory.GetInstance("RSA");
-                PKCS8EncodedKeySpec privateKeySpec = new PKCS8EncodedKeySpec(privateKey);
-                IPrivateKey privateKeyKey = kf.GeneratePrivate(privateKeySpec);
-                Cipher cipherEnc = Cipher.GetInstance("RSA");
-                cipherEnc.Init(CipherMode.EncryptMode, privateKeyKey);
-                byte[] result = cipherEnc.DoFinal(data);
-                return Base64.EncodeToString(result, Base64Flags.NoWrap);
-            }
-            catch (Exception exception)
-            {
-                return null;
-            }
+            get { return new Crypto(); }
         }
 
         public string CryptTimestampWithPrivateKey(long timestamp, string privateKeyBase64)
         {
+            KeyFactory kf = KeyFactory.GetInstance("RSA");
+            byte[] privateKeyBytes = Base64.Decode(privateKeyBase64, Base64Flags.Default);
+            IPrivateKey privateKey = kf.GeneratePrivate(new PKCS8EncodedKeySpec(privateKeyBytes));
+
+            Cipher cipherEnc = Cipher.GetInstance("RSA/ECB/PKCS1Padding");
+            cipherEnc.Init(Cipher.EncryptMode, privateKey);
+
             byte[] payload = BitConverter.GetBytes(timestamp);
-            byte[] reversedHack = payload.Reverse().ToArray();
-            return EncryptRSA(privateKeyBase64, reversedHack);
+            if (BitConverter.IsLittleEndian)
+                Array.Reverse(payload);
+
+            byte[] encTime = cipherEnc.DoFinal(payload);
+            String encodedTimeBase64 = Base64.EncodeToString(encTime, Base64Flags.Default | Base64Flags.NoWrap);
+
+            return encodedTimeBase64;
         }
     }
 }
