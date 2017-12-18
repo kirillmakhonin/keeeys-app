@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Helpers\ICrypto.cs" />
+    <Compile Include="Helpers\Profiler.cs" />
     <Compile Include="Helpers\QrEncoder.cs" />
     <Compile Include="Helpers\Time.cs" />
     <Compile Include="Models\DataProvider.cs" />
