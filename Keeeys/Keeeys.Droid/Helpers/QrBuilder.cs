@@ -17,25 +17,14 @@ namespace Keeeys.Droid.Helpers
             };
             options.Hints.Add(EncodeHintType.CHARACTER_SET, "UTF-8");
 
-            var writer = new BarcodeWriter
+            var writer = new ZXing.Mobile.BarcodeWriter
             {
                 Format = BarcodeFormat.QR_CODE,
                 Options = options
 
             };
-            byte[] bitmapData = writer.Write(data);
-            Bitmap bitmap = Bitmap.CreateBitmap(width, height, Bitmap.Config.Argb8888);
 
-            for (int i = 0; i < width; i++)
-            {
-                for (int j = 0; j < height; j++)
-                {
-                    int pos = (width * j + i) * 4;
-                    bitmap.SetPixel(i, j, Color.Argb(255, bitmapData[pos + 1], bitmapData[pos + 2], bitmapData[pos + 3]));
-                }
-            }
-
-            return bitmap;
-        }
+            return writer.Write(data);
+        }        
     }
 }
