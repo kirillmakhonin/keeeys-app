@@ -20,8 +20,6 @@ namespace Keeeys.Common.Network
         #region Singleton
         private Connector() { }
 
-        private static bool isSecureHasBeenResetted = false;
-
         public static Connector TryGet(string server, string login, string password)
         {
 

@@ -42,7 +42,7 @@ namespace Keeeys.Droid.Activities
 
                     if (!FileHelper.IsFileExists(dbName))
                     {
-                        Toast.MakeText(this, "База данных отсутствует", ToastLength.Short).Show();
+                        //Toast.MakeText(this, "База данных отсутствует", ToastLength.Short).Show();
                     }
 
                     /// TODO: Database file removal
@@ -68,7 +68,7 @@ namespace Keeeys.Droid.Activities
             }
             catch(Exception dbException)
             {
-                Toast.MakeText(this, "База данных установлена!", ToastLength.Short).Show();
+                //Toast.MakeText(this, "База данных установлена!", ToastLength.Short).Show();
             }
         }
 
