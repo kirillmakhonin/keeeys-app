@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 using Android.App;
 using Android.Content;
@@ -43,10 +40,27 @@ namespace Keeeys.Droid.Activities
             try
             {
                 Crypto crypto = new Crypto();
-                Bitmap bitmap = QrBuilder.BuildImage(key.DataForAuthorisation(crypto), width, width);
-                image.SetImageBitmap(bitmap);
+                string keyString = null;
+                Bitmap bitmap = null;
+
+                using (new Common.Helpers.Profiler("Build key"))
+                {
+                    keyString = key.DataForAuthorisation(crypto);
+                }
+
+                using (new Common.Helpers.Profiler("Build QR"))
+                {
+                    bitmap = QrBuilder.BuildImage(keyString, width, width);
+                }
+
+                using (new Common.Helpers.Profiler("Setting bitmap"))
+                {
+                    image.SetImageBitmap(bitmap);
+                }
+
+
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 Finish();
                 Toast.MakeText(this, Resources.GetString(Resource.String.layout__private_key__qr_code_build_error), ToastLength.Long).Show();
