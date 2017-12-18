@@ -5,7 +5,6 @@ using Android.OS;
 using Keeeys.Droid.PlatformSpecific;
 using Keeeys.Common.Models;
 using SQLite.Net;
-using SQLite.Net.Platform.XamarinAndroid;
 using Android.Widget;
 
 namespace Keeeys.Droid.Activities
@@ -53,7 +52,7 @@ namespace Keeeys.Droid.Activities
 
                     try
                     {
-                        DataProvider.Connection = new SQLiteConnection(new SQLitePlatformAndroid(), databasePath);
+                        DataProvider.Connection = new SQLiteConnection(new SQLite.Net.Platform.XamarinAndroid.SQLitePlatformAndroidN(), databasePath);
                     }
                     catch (Exception databaseConnectionException)
                     {
