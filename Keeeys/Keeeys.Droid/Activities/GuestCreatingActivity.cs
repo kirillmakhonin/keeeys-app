@@ -53,7 +53,7 @@ namespace Keeeys.Droid.Activities
             dialog.SetMessage(Resource.String.layout__guest_creating__guest_name_dialog__message);
             dialog.SetView(userNameInput);
             dialog.SetPositiveButton(Resource.String.layout__guest_creating__guest_name_dialog__next, (senderAlert, args) => {
-                if (userNameInput.Text.Trim().Length > 4)
+                if (userNameInput.Text.Trim().Length > 3)
                 {
                     SendRequest(userNameInput.Text);
                 }
